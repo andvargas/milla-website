@@ -1,0 +1,7 @@
+.main {
+    width: 40vmax;
+    border: 1px solid #eee;
+    padding: 16px;
+    box-shadow: 0 2px 3px #ccc;
+    margin: 10px 10px 10px 0;
+}

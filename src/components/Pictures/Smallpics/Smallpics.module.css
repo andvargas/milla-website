@@ -1,0 +1,10 @@
+.thumbcontainer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: left;
+    align-items: baseline;
+    width: 50%;
+}
+.container {
+    display: flex;
+}
