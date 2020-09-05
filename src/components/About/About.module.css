@@ -1,6 +1,6 @@
 #profile {
     width: 20vw;
-    height: 20vw;
+    height: auto;
     border-radius: 50%;
     border: 1px solid blue;
     align-self: center;
