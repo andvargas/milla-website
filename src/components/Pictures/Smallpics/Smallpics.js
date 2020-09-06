@@ -16,7 +16,7 @@ class Smallpics extends Component {
             {
                 id: 1,
                 src: pic1,
-                title: 'Tuzmadar'
+                title: 'Phoenix of the Burning Forests'
             },
             {
                 id: 2,
@@ -26,26 +26,26 @@ class Smallpics extends Component {
             {
                 id: 3,
                 src: pic3,
-                title: 'Unknown'
+                title: 'Floating Dreams'
             },
             {
                 id: 4,
                 src: pic4,
-                title: 'Unknown'
+                title: 'Sunrise'
             },
             {
                 id: 5,
                 src: pic5,
-                title: 'Unknown'
+                title: 'The Long Road'
             },
             {
                 id: 6,
                 src: pic6,
-                title: 'Unknown'
+                title: 'Magic Deer'
             }
         ],
         thumbs: [],
-        selectedThumbSrc: null
+        selectedThumbSrc: null,
     }
 
     imgSelectedHandler = (id) => {

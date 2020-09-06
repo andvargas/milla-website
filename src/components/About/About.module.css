@@ -1,14 +1,13 @@
 #profile {
-    width: 20vw;
+    width: 25vw;
     height: auto;
     border-radius: 50%;
-    border: 1px solid blue;
     align-self: center;
 }
 .container {
     display: flex;
     padding: 30px;
-    width: 50vw;
+    width: 60vw;
     margin: auto;
 }
 .text {

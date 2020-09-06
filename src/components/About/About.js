@@ -1,6 +1,6 @@
 import React from 'react';
 
-import profilePic from '../../images/milla.jpg';
+import profilePic from '../../images/about-me.jpg';
 import classes from './About.module.css'
 
 const about = (props) => (
@@ -8,7 +8,7 @@ const about = (props) => (
         <img id={classes.profile} src={profilePic} alt="Kamilla" />
         <div className={classes.text}>
             <h3>About Me</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>I’m a Hungarian-Transylvanian artist, I use a wide variety of mediums, subject matters, techniques and styles. I have been learning from artists who share their skills via youtube and other online platforms. I love experimenting, expressing my thoughts, feelings, ideas, dreams through painting and drawing. I like exploring philosophical topics, symbols, and I usually hide a message behind my compositions.</p>
         </div>
         
     </div>
