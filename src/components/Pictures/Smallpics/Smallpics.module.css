@@ -8,3 +8,14 @@
 .container {
     display: flex;
 }
+
+@media only screen and (max-width: 600px) {
+    .thumbcontainer {
+        display: flex;
+        flex-direction: row wrap;
+        width: 100%;
+    }
+    .container {
+        display: block;
+    }
+}

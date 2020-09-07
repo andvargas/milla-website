@@ -17,3 +17,9 @@ h6 {
 p {
   font-family: 'Cormorant Garamond', sans-serif;
 }
+
+@media only screen and (max-width: 700px) {
+    .body {
+        width: 100%;
+    }
+}

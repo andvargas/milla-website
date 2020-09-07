@@ -22,19 +22,20 @@ const useStyles = makeStyles({
     }
 });
 
-function createData(name, type, priceOriginal, pricePrint, shipping) {
-    return { name, type, priceOriginal, pricePrint, shipping};
+function createData(name, type, size, pricePrint, shipping) {
+    return { name, type, size, pricePrint, shipping};
 }
 
 const rows = [
-    createData('Phoenix of the Burning Forests', 'watercolour', 6000, 47, 24),
-    createData('Magic Deer', 'watercolour', 5000, 37, 24),
-    createData('Take off the Mask', 'watercolour', 5000.0, 29, 24),
-    createData('Land of the Blue Volcanoes', 'watercolour', 5000, 67, 24),
-    createData('Grace', 'acrylic', 8000, 49, 24),
-    createData('Floating Dreams', 'watercolour', 5000, 49, 24),
-    createData('Desire', 'graphite', 7000, 49, 24),
-    createData('The Long Road', 'watercolour', 7000, 49, 24),
+    createData('Phoenix of the Burning Forests', 'watercolour', '31.6 x 23.8', 6000, 24),
+    createData('Magic Deer', 'watercolour', '25.4 x 16.4', 5000, 24),
+    createData('Take off the Mask', 'acrylic', '23.8 x 29.8', 7000, 24),
+    createData('Land of the Blue Volcanoes', 'watercolour', '23.8 x 17.9', 5000, 24),
+    createData('Grace', 'acrylic', '40 x 60', 8000, 24),
+    createData('Floating Dreams', 'watercolour', '25.4 x 17.9', 5000, 24),
+    createData('Desire', 'graphite', '59 x 42', 7000, 24),
+    createData('The Way of the Falcon', 'graphite', '59 x 42', 7000, 24),
+    createData('The Long Road', 'watercolour', '23.8 x 17.9', 7000, 24),
 ];
 
 export default function SimpleTable() {
@@ -48,7 +49,7 @@ export default function SimpleTable() {
                     <TableRow>
                         <TableCell>Title</TableCell>
                         <TableCell align="center">Type</TableCell>
-                        <TableCell align="right">Price original (£)</TableCell>
+                        <TableCell align="right">Size (cm)</TableCell>
                         <TableCell align="right">Price print (£)</TableCell>
                         <TableCell align="right">Shipping fee (£)</TableCell>
                     </TableRow>
@@ -60,7 +61,7 @@ export default function SimpleTable() {
                                 {row.name}
                             </TableCell>
                             <TableCell align="center">{row.type}</TableCell>
-                            <TableCell align="right">{row.priceOriginal}</TableCell>
+                            <TableCell align="right">{row.size}</TableCell>
                             <TableCell align="right">{row.pricePrint}</TableCell>
                             <TableCell align="right">{row.shipping}</TableCell>
                         </TableRow>

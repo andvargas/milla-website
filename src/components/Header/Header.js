@@ -9,7 +9,7 @@ function Header() {
             <HomePageImage />
             <h1 className={classes.Content}>Vargyas Kamilla</h1>
             <h2>ARTIST</h2>
-            <div><span className="App-link" >graphic</span> | <span className="App-link" >watercolour</span> | <span className="App-link" >acrylic</span></div>
+            <div><span className="App-link" >graphite</span> | <span className="App-link" >watercolour</span> | <span className="App-link" >acrylic</span></div>
         </Aux>
         
         )
