@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -41,9 +41,14 @@ const rows = [
 export default function SimpleTable() {
     const classes = useStyles();
 
+    // just testing - seems like I have to add states as this way won't work | {convert(row.pricePrint)}
+    // function convert() {
+    //     const [originalPrice, newPrice]  = useState(0);
+    // };
+
     return (
         <TableContainer className={classes.container} component={Paper}>
-            <h3>Pricelist | <span className={classes.smallfont}>GBP/HUF</span></h3>
+            <h3>Pricelist <button type="button" >HUF</button> <button type="button">GBP (£)</button></h3>
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                     <TableRow>

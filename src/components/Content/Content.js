@@ -4,6 +4,7 @@ import Pricelist from '../Pricelist/Pricelist'
 import classes from './Content.module.css';
 import Pictures from '../Pictures/Pictures';
 import About from '../About/About';
+import Admin from '../Admin/Admin'
 
 function Content () {
     return (
@@ -13,6 +14,7 @@ function Content () {
             <Pictures />
             <Pricelist />
             <About />
+            <Admin />
         </div>
     )
 }
