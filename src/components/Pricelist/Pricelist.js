@@ -22,6 +22,12 @@ const useStyles = makeStyles({
     }
 });
 
+let toggleHufBtn = {
+    border: 0,
+}
+let toggleGbpBtn = {
+}
+
 function createData(name, type, size, pricePrint, shipping) {
     return { name, type, size, pricePrint, shipping};
 }
@@ -41,21 +47,44 @@ const rows = [
 export default function SimpleTable() {
     const classes = useStyles();
 
-    // just testing - seems like I have to add states as this way won't work | {convert(row.pricePrint)}
-    // function convert() {
-    //     const [originalPrice, newPrice]  = useState(0);
-    // };
+    const [ currencyState, setCurrencyState ] = useState({
+        currency: 'HUF',
+        multiplier: 1
+    })
+
+    const currency = (huf) => (Math.round(huf * currencyState.multiplier));
+
+    const gbp = () => setCurrencyState({ currency: '£', multiplier: 0.036});
+    const huf = () => setCurrencyState({ currency: 'HUF', multiplier: 1 });
+
+
+    if ( currencyState.currency === 'HUF' ) {
+        toggleHufBtn = {
+            backgroundColor: '#1E51AB',
+            color: 'white'
+        }
+        toggleGbpBtn = {
+        }
+    } else {
+        toggleHufBtn = {
+        }
+        toggleGbpBtn = {
+            backgroundColor: '#1E51AB',
+            color: 'white'
+        }
+    }
+
 
     return (
         <TableContainer className={classes.container} component={Paper}>
-            <h3>Pricelist <button type="button" >HUF</button> <button type="button">GBP (£)</button></h3>
+            <h3>Pricelist <button style={toggleHufBtn} onClick={huf} type="button" >HUF</button> <button style={toggleGbpBtn} onClick={gbp} type="button">GBP (£)</button></h3>
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                     <TableRow>
                         <TableCell>Title</TableCell>
                         <TableCell align="center">Type</TableCell>
                         <TableCell align="right">Size (cm)</TableCell>
-                        <TableCell align="right">Price print (£)</TableCell>
+                        <TableCell align="right">Price print ({currencyState.currency})</TableCell>
                         <TableCell align="right">Shipping fee (£)</TableCell>
                     </TableRow>
                 </TableHead>
@@ -67,7 +96,7 @@ export default function SimpleTable() {
                             </TableCell>
                             <TableCell align="center">{row.type}</TableCell>
                             <TableCell align="right">{row.size}</TableCell>
-                            <TableCell align="right">{row.pricePrint}</TableCell>
+                            <TableCell align="right">{currency(row.pricePrint)}</TableCell>
                             <TableCell align="right">{row.shipping}</TableCell>
                         </TableRow>
                     ))}

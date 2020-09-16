@@ -14,7 +14,7 @@ function Content () {
             <Pictures />
             <Pricelist />
             <About />
-            <Admin />
+            {localStorage.getItem("user") ? <Admin /> : null}
         </div>
     )
 }

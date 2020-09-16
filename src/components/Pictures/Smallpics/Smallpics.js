@@ -17,7 +17,6 @@ class Smallpics extends Component {
         axios.get('https://milla-86381.firebaseio.com/artworks.json')
         .then(response => {
             const artworkArray = Object.values(response.data);
-            console.log(artworkArray);
             this.setState({pictures: artworkArray})
         });
         
