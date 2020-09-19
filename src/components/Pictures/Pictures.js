@@ -1,29 +1,52 @@
 import React, { Component } from 'react';
 
-import classes from './Pictures.module.css'
-import Smallpics from './Smallpics/Smallpics';
+import axios from 'axios'
 
+import Smallpic from './Smallpic/Smallpic';
+import classes from './Pictures.module.css';
+import MainPicture from './MainPicture/MainPicture';
 
-class Pictures extends Component {
+class Smallpics extends Component {
     state = {
+        pictures: [],
         thumbs: [],
-        selectedThumbId: null
+        selectedThumbSrc: null,
     }
 
-    thumbSelectedHandler = (id) => {
-        this.setState({selectedThumbId: id});
+    componentDidMount () {
+        axios.get('https://milla-86381.firebaseio.com/artworks.json')
+        .then(response => {
+            const artworkArray = Object.values(response.data);
+            this.setState({pictures: artworkArray})
+        });
+        
+
+    }
+
+    imgSelectedHandler = (id) => {
+        this.setState({selectedThumbSrc: id});
     }
 
     render () {
+        const thumbnails = this.state.pictures.map(thumb => {
+            return <Smallpic
+                key={thumb.id}
+                title={thumb.title}
+                src={thumb.src}
+                clicked={() => this.imgSelectedHandler(thumb.src)} />
+        });
+
         return (
-            <div className={classes.ImgContainer}>
-                <Smallpics />
+            <div className={classes.container}>
+                <MainPicture src={this.state.selectedThumbSrc} />
+                <div className={classes.thumbcontainer}>
+                {thumbnails}
+                </div>
             </div>
+            
+            
         )
     }
-
 }
 
-export default Pictures;
-
-//delete this file
+export default Smallpics;

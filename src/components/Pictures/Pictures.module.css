@@ -1,3 +1,21 @@
-.ImgContainer {
+.thumbcontainer {
     display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 50%;
+}
+.container {
+    display: flex;
+}
+
+@media only screen and (max-width: 800px) {
+    .thumbcontainer {
+        display: flex;
+        flex-direction: row wrap;
+        width: 100%;
+    }
+    .container {
+        display: block;
+    }
 }

@@ -19,29 +19,28 @@ const useStyles = makeStyles({
     },
     smallfont: {
         fontSize: '0.7em',
+    },
+    initialBtn: {
+        background: '#1E51AB',
+        color: 'white'
     }
 });
 
-let toggleHufBtn = {
-    border: 0,
-}
-let toggleGbpBtn = {
-}
 
 function createData(name, type, size, pricePrint, shipping) {
     return { name, type, size, pricePrint, shipping};
 }
 
 const rows = [
-    createData('Phoenix of the Burning Forests', 'watercolour', '31.6 x 23.8', 6000, 24),
-    createData('Magic Deer', 'watercolour', '25.4 x 16.4', 5000, 24),
-    createData('Take off the Mask', 'acrylic', '23.8 x 29.8', 7000, 24),
-    createData('Land of the Blue Volcanoes', 'watercolour', '23.8 x 17.9', 5000, 24),
-    createData('Grace', 'acrylic', '40 x 60', 8000, 24),
-    createData('Floating Dreams', 'watercolour', '25.4 x 17.9', 5000, 24),
-    createData('Desire', 'graphite', '59 x 42', 7000, 24),
-    createData('The Way of the Falcon', 'graphite', '59 x 42', 7000, 24),
-    createData('The Long Road', 'watercolour', '23.8 x 17.9', 7000, 24),
+    createData('Phoenix of the Burning Forests', 'watercolour', '31.6 x 23.8', 6000, 1500),
+    createData('Magic Deer', 'watercolour', '25.4 x 16.4', 5000, 1500),
+    createData('Take off the Mask', 'acrylic', '23.8 x 29.8', 7000, 1500),
+    createData('Land of the Blue Volcanoes', 'watercolour', '23.8 x 17.9', 5000, 1500),
+    createData('Grace', 'acrylic', '40 x 60', 8000, 1500),
+    createData('Floating Dreams', 'watercolour', '25.4 x 17.9', 5000, 1500),
+    createData('Desire', 'graphite', '59 x 42', 7000, 1500),
+    createData('The Way of the Falcon', 'graphite', '59 x 42', 7000, 1500),
+    createData('The Long Road', 'watercolour', '23.8 x 17.9', 7000, 1500),
 ];
 
 export default function SimpleTable() {
@@ -49,35 +48,34 @@ export default function SimpleTable() {
 
     const [ currencyState, setCurrencyState ] = useState({
         currency: 'HUF',
-        multiplier: 1
+        multiplier: 1,
+        shippingFee: 1600,
+        hufBtn: {
+            background: '#1E51AB',
+            color: 'white'
+        },
+        gbpBtn: {}
     })
 
     const currency = (huf) => (Math.round(huf * currencyState.multiplier));
 
-    const gbp = () => setCurrencyState({ currency: '£', multiplier: 0.036});
-    const huf = () => setCurrencyState({ currency: 'HUF', multiplier: 1 });
-
-
-    if ( currencyState.currency === 'HUF' ) {
-        toggleHufBtn = {
-            backgroundColor: '#1E51AB',
-            color: 'white'
-        }
-        toggleGbpBtn = {
-        }
-    } else {
-        toggleHufBtn = {
-        }
-        toggleGbpBtn = {
-            backgroundColor: '#1E51AB',
-            color: 'white'
-        }
-    }
+    const gbp = () => setCurrencyState({ 
+        currency: '£', 
+        multiplier: 0.0026,
+        gbpBtn: { background: '#1E51AB', color: 'white' },
+        shippingFee: '£4 - 19'
+    });
+    const huf = () => setCurrencyState({
+        currency: 'HUF',
+        multiplier: 1,
+        hufBtn: { background: '#1E51AB', color: 'white' },
+        shippingFee: 1600
+    });
 
 
     return (
         <TableContainer className={classes.container} component={Paper}>
-            <h3>Pricelist <button style={toggleHufBtn} onClick={huf} type="button" >HUF</button> <button style={toggleGbpBtn} onClick={gbp} type="button">GBP (£)</button></h3>
+            <h3>Pricelist <button style={currencyState.hufBtn} onClick={huf} type="button" >HUF</button> <button style={currencyState.gbpBtn} onClick={gbp} type="button">GBP (£)</button></h3>
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                     <TableRow>
@@ -85,7 +83,7 @@ export default function SimpleTable() {
                         <TableCell align="center">Type</TableCell>
                         <TableCell align="right">Size (cm)</TableCell>
                         <TableCell align="right">Price print ({currencyState.currency})</TableCell>
-                        <TableCell align="right">Shipping fee (£)</TableCell>
+                        <TableCell align="right">Shipping fee </TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -97,7 +95,7 @@ export default function SimpleTable() {
                             <TableCell align="center">{row.type}</TableCell>
                             <TableCell align="right">{row.size}</TableCell>
                             <TableCell align="right">{currency(row.pricePrint)}</TableCell>
-                            <TableCell align="right">{row.shipping}</TableCell>
+                            <TableCell align="right">{currencyState.shippingFee}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
