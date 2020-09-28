@@ -1,0 +1,9 @@
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background: rgb(243, 243, 243);
+}
+footer a {
+    text-decoration: none;
+}

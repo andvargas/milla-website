@@ -1,22 +1,31 @@
 import React from 'react';
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import Pricelist from '../Pricelist/Pricelist'
 import classes from './Content.module.css';
 import About from '../About/About';
 import Admin from '../Admin/Admin';
-import Smallpics from '../Pictures/Pictures';
-
+import Pictures from '../Pictures/Pictures';
 
 function Content () {
     return (
         <div className={classes.body}>
-            <h3>Original Compositions</h3>
-            <h6>Prints Available | Worldwide Shipping</h6>
-            <Smallpics />
-            <Pricelist />
-            <About />
-            <Route path="/admin" component={Admin} />
+
+            <Route path="/" exact component={Pictures} />
+            <Route path="/watercolour" component={Pictures} />
+            <Route path="/graphite" component={Pictures} />
+            <Route path="/acrylic" component={Pictures} />
+                
+            <Route path="/" exact component={Pricelist} />
+            <Route path="/acrylic" exact component={Pricelist} />
+            
+            <Route path="/" exact component={About} />
+            <Route path="/acrylic" exact component={About} />
+            <Switch>
+                <Route path="/admin" exact component={Admin} />
+                
+            </Switch>
+            
         </div>
     )
 }

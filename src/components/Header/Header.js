@@ -1,16 +1,29 @@
 import React from 'react';
-import Aux from '../../hoc/Aux/Aux'
 import HomePageImage from '../HomePageImage';
 import classes from './Header.module.css'
+import { NavLink } from 'react-router-dom';
 
-function Header() {
+function Header(props) {
     return (
-        <Aux>
+        <header className={classes.Header}>
             <HomePageImage />
             <h1 className={classes.Content}>Vargyas Kamilla</h1>
-            <h2>ARTIST</h2>
-            <div><span className="App-link" >graphite</span> | <span className="App-link" >watercolour</span> | <span className="App-link" >acrylic</span></div>
-        </Aux>
+            <h2>Artist</h2>
+            <div>
+                <NavLink 
+                    to={{ pathname: '/graphite', state: { type: 'graphite' } }} 
+                    className={classes.AppLink} 
+                    activeStyle={{ color: "#b12382" }} >graphite</NavLink> | 
+                <NavLink 
+                    to={{ pathname: '/watercolour', state: { type: 'watercolour' } }} 
+                    className={classes.AppLink} 
+                    activeStyle={{ color: "#b12382" }} > watercolour</NavLink> | 
+                <NavLink 
+                    to={{ pathname: '/acrylic', state: { type: 'acrylic' } }} 
+                    className={classes.AppLink} 
+                    activeStyle={{ color: "#b12382" }} > acrylic</NavLink>
+            </div>
+        </header>
         
         )
     };

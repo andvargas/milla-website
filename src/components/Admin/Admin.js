@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Redirect } from "react-router-dom";
 
 import './Admin.css'
 
@@ -9,7 +10,10 @@ class Admin extends Component {
         title: '',
         size: '',
         price: '',
-        src: ''
+        src: '',
+        type: '',
+        method: '',
+        submitted: false
     }
     // fetch last id to increment for the next post
     componentDidMount = () => {
@@ -28,18 +32,25 @@ class Admin extends Component {
             size: this.state.size,
             price: this.state.price,
             src: this.state.src,
-            id: this.state.id + 1
+            id: this.state.id + 1,
+            method: this.state.method,
+            type: this.state.type
         }
 
         axios.post('https://milla-86381.firebaseio.com/artworks.json', data)
             .then(response => console.log(response))
-            .then(this.setState({ id: '', title: '', size: '', price: '', src: '' }))
+            .then(this.setState({ id: '', title: '', size: '', price: '', src: '', type: '', submitted: true }))
             .catch(error => console.log(error))
     }
 
     render () {
+        let redirect = null;
+        if (this.state.submitted) {
+            redirect = <Redirect to="/" />;
+        }
         return (
             <div className="NewArtwork">
+                {redirect}
                 <h4>Add Artwork </h4>
                 <label>Title</label>
                 <input type="text" value={this.state.title} onChange={(event) => this.setState({ title: event.target.value })} />
@@ -49,6 +60,10 @@ class Admin extends Component {
                 <input type="text" value={this.state.src} onChange={(event) => this.setState({ src: event.target.value })} />
                 <label>Price</label>
                 <input type="text" value={this.state.price} onChange={(event) => this.setState({ price: event.target.value })} />
+                <label>Method</label>
+                <input type="text" value={this.state.method} onChange={(event) => this.setState({ method: event.target.value })} />
+                <label>Original?</label>
+                <input type="checkbox" value="original" onChange={(event) => this.setState({ type: event.target.value })} />
                 <button onClick={this.postDataHandler}>Add Artwork</button>
             </div>
         )
