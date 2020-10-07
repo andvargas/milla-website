@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
 
-import mainImg from '../../../images/tuzmadar.jpg';
+// import mainImg from '../../../images/tuzmadar.jpg';
 import classes from './MainPicture.module.css';
 
 class MainPicture extends Component {
     state = {
-        loadedImg: null
+        loadedImg: this.props.staticSrc
     }
-    render () {
-        let mainImage = <img className={classes.main} src={mainImg} alt="main" />
-        if (this.props.src) {
-            mainImage = (
-                <div>
-                <img className={classes.main} src={this.props.src} alt="main" />
-            </div>
-            )
+
+    componentDidUpdate () {
+        if (this.state.loadedImg !== this.props.src) {
+            this.setState({ loadedImg: this.props.src })
         }
+    }
+
+    render () {
+        let mainImage = (
+            <div>
+                    <img className={classes.main} src={this.state.loadedImg} alt="main" />
+                </div>
+        );
         return mainImage;
     }
 }

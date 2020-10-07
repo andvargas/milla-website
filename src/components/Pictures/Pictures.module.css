@@ -5,6 +5,18 @@
     align-items: baseline;
     width: 50%;
 }
+
+.thumbExtra {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.thumbExtra::after {
+    content: "";
+    flex: auto;
+}
+
 .container {
     display: flex;
 }
@@ -12,7 +24,7 @@
 @media only screen and (max-width: 800px) {
     .thumbcontainer {
         display: flex;
-        flex-direction: row wrap;
+        flex-direction: row;
         width: 100%;
     }
     .container {

@@ -10,21 +10,19 @@ import Pictures from '../Pictures/Pictures';
 function Content () {
     return (
         <div className={classes.body}>
+            <Switch>
+                <Route path="/admin" exact component={Admin} />
 
+            </Switch>
             <Route path="/" exact component={Pictures} />
             <Route path="/watercolour" component={Pictures} />
             <Route path="/graphite" component={Pictures} />
             <Route path="/acrylic" component={Pictures} />
                 
-            <Route path="/" exact component={Pricelist} />
-            <Route path="/acrylic" exact component={Pricelist} />
+            <Route path="/" component={Pricelist} />
             
-            <Route path="/" exact component={About} />
-            <Route path="/acrylic" exact component={About} />
-            <Switch>
-                <Route path="/admin" exact component={Admin} />
-                
-            </Switch>
+            <Route path="/" component={About} />
+            
             
         </div>
     )

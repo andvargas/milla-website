@@ -1,6 +1,6 @@
 .ImgCont {
     display: block;
-    width: 33%;
+    width: 11vw;
 }
 
 .Smallimage {
@@ -13,6 +13,7 @@
     box-sizing: border-box;
     cursor: pointer;
     object-fit: contain;
+    
 }
 
 .Caption {
@@ -23,6 +24,7 @@
 @media only screen and (max-width: 800px) {
     .ImgCont {
         display: block;
+        width: 22vw;
         text-align: center;
     }
     .Smallimage {
