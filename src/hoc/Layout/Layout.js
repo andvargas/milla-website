@@ -6,6 +6,7 @@ import Content from '../../components/Content/Content';
 import Footer from '../../components/Footer/Footer'
 
 class Layout extends Component{
+
     render () {
         return (
             <Aux>

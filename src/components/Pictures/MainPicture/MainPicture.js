@@ -5,7 +5,7 @@ import classes from './MainPicture.module.css';
 
 class MainPicture extends Component {
     state = {
-        loadedImg: this.props.staticSrc
+        loadedImg: ''
     }
 
     componentDidUpdate () {

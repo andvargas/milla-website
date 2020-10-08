@@ -13,34 +13,35 @@ class Pictures extends Component {
         pictures: [],
         thumbs: [],
         selectedThumbSrc: '',
-        staticSrc: '',
         typesToShow: 'original'
     }
 
     componentDidMount () {
-        //this.props.location.state.type = 'originals'
-        axios.get('https://milla-86381.firebaseio.com/artworks.json')
-        .then(response => {
-            const artworkArray = Object.values(response.data);
-            this.setState({ pictures: artworkArray, selectedThumbSrc: response.data[Object.keys(response.data)[0]].src});  
-        })
-        
+        this.loadData()
     }
 
     componentDidUpdate () {
         const filtered = this.state.pictures.filter(originals => originals.type === this.state.typesToShow || originals.method === this.state.typesToShow);
         const filteredSrc = filtered[Object.keys(filtered)[0]].src;
-        if (this.state.staticSrc !== filteredSrc) {
-            this.setState({ staticSrc: filteredSrc })
-        }
         
         if (this.props.location.state) {
             if (this.props.location.state.type !== this.state.typesToShow) {
                 const paintType = this.props.location.state.type
                 this.setState({ typesToShow: paintType })
-                this.setState({ selectedThumbSrc: filteredSrc }) // for some reason this doesn't get rendered, although the variable is correct, it might need to rerender after the promise has been executed.
+                this.setState({ selectedThumbSrc: filteredSrc }) 
             }
         }
+    }
+
+    loadData () {
+        axios.get('https://milla-86381.firebaseio.com/artworks.json')
+            .then(response => {
+                const artworkArray = Object.values(response.data);
+                this.setState({ pictures: artworkArray });
+                const filtered = artworkArray.filter(originals => originals.type === this.state.typesToShow || originals.method === this.state.typesToShow);
+                const filteredSrc = filtered[0].src
+                this.setState({ selectedThumbSrc: filteredSrc })
+            })
     }
 
     imgSelectedHandler = (id) => {
@@ -69,7 +70,7 @@ class Pictures extends Component {
                 <Route path="/" exact render={() => <h3>Original Compositions</h3>} />
                 <h6>Prints Available | Worldwide Shipping</h6>
                 <div className={classes.container}>
-                    <MainPicture src={this.state.selectedThumbSrc} staticSrc={this.state.staticSrc} />
+                    <MainPicture src={this.state.selectedThumbSrc} setMainImg={this.imgSelectedHandler} /* staticSrc={this.state.staticSrc} */ />
                     <div className={classes.thumbcontainer}>
                     {thumbnails}
                     </div>

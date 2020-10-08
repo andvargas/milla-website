@@ -7,7 +7,7 @@ import About from '../About/About';
 import Admin from '../Admin/Admin';
 import Pictures from '../Pictures/Pictures';
 
-function Content () {
+function Content (props) {
     return (
         <div className={classes.body}>
             <Switch>
@@ -22,8 +22,6 @@ function Content () {
             <Route path="/" component={Pricelist} />
             
             <Route path="/" component={About} />
-            
-            
         </div>
     )
 }
