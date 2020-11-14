@@ -46,6 +46,7 @@ class Pictures extends Component {
 
     imgSelectedHandler = (id) => {
         this.setState({selectedThumbSrc: id});
+        window.scroll(0, 300)
     }
 
     typeSelectHandler = (type) => {

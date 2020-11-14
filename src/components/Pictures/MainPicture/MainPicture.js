@@ -16,7 +16,7 @@ class MainPicture extends Component {
 
     render () {
         let mainImage = (
-            <div>
+            <div id="main">
                     <img className={classes.main} src={this.state.loadedImg} alt="main" />
                 </div>
         );

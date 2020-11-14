@@ -39,14 +39,14 @@ class Admin extends Component {
 
         axios.post('https://milla-86381.firebaseio.com/artworks.json', data)
             .then(response => console.log(response))
-            .then(this.setState({ id: '', title: '', size: '', price: '', src: '', type: '', submitted: true }))
+            .then(this.setState({ id: data.id, title: '', size: '', price: '', src: '', type: '', method: 'watercolour', submitted: true }))
             .catch(error => console.log(error))
     }
 
     render () {
         let redirect = null;
         if (this.state.submitted) {
-            redirect = <Redirect to="/" />;
+            redirect = <Redirect to="/admin" />;
         }
         return (
             <div className="NewArtwork">
