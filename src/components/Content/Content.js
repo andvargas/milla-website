@@ -19,7 +19,7 @@ function Content (props) {
             <Route path="/graphite" component={Pictures} />
             <Route path="/acrylic" component={Pictures} />
                 
-            <Route path="/" component={Pricelist} />
+            <Route path="/" exact component={Pricelist} />
             
             <Route path="/" component={About} />
         </div>

@@ -1,0 +1,39 @@
+.Topnav {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.logo {
+    font-family: 'Josefin Slab', serif;
+    color: #d29f9a;
+    padding: 0 30px;
+    margin: 10px;
+    letter-spacing: 4px;
+}
+.Social {
+    color: green;
+    padding: 0 10px;
+}
+
+.Sidenav {
+    width: 15%;
+    align-items: center;
+}
+
+.NavItems {
+    font-family: 'Josefin Slab', serif;
+    /* text-transform: uppercase; */
+    font-weight: bold;
+    padding-top: 50px;
+    padding-right: 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.MenuItem {
+    padding: 8px;
+    text-decoration: none;
+}

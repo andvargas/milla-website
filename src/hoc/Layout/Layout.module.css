@@ -8,3 +8,7 @@
   font-size: calc(10px + 2vmin);
   color: #3f3f3f;
 }
+.Layout {
+  display: flex;
+  flex-direction: row;
+}

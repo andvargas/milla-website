@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from "react-router-dom";
 
-import './Admin.css'
+import classes from './Admin.module.css';
+import Input from '../UI/Input/Input';
 
 class Admin extends Component {
     state = {
@@ -49,23 +50,23 @@ class Admin extends Component {
             redirect = <Redirect to="/admin" />;
         }
         return (
-            <div className="NewArtwork">
+            <form className={classes.NewArtwork}>
                 {redirect}
                 <h4>Add Artwork </h4>
                 <label>Title</label>
-                <input type="text" value={this.state.title} onChange={(event) => this.setState({ title: event.target.value })} />
+                <Input inputtype="input" type="text" value={this.state.title} onChange={(event) => this.setState({ title: event.target.value })} />
                 <label>Size</label>
-                <input type="text" value={this.state.size} onChange={(event) => this.setState({ size: event.target.value })} />
+                <Input inputtype="input" type="text" value={this.state.size} onChange={(event) => this.setState({ size: event.target.value })} />
                 <label>Image link</label>
-                <input type="text" value={this.state.src} onChange={(event) => this.setState({ src: event.target.value })} />
+                <Input inputtype="input" type="text" value={this.state.src} onChange={(event) => this.setState({ src: event.target.value })} />
                 <label>Price</label>
-                <input type="text" value={this.state.price} onChange={(event) => this.setState({ price: event.target.value })} />
+                <Input inputtype="input" type="text" value={this.state.price} onChange={(event) => this.setState({ price: event.target.value })} />
                 <label>Method</label>
-                <input type="text" value={this.state.method} onChange={(event) => this.setState({ method: event.target.value })} />
+                <Input cinputtype="input"type="text" value={this.state.method} onChange={(event) => this.setState({ method: event.target.value })} />
                 <label>Original?</label>
-                <input type="checkbox" value="original" onChange={(event) => this.setState({ type: event.target.value })} />
+                <Input inputtype="input" type="checkbox" value="original" onChange={(event) => this.setState({ type: event.target.value })} />
                 <button onClick={this.postDataHandler}>Add Artwork</button>
-            </div>
+            </form>
         )
     }
 }

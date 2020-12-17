@@ -7,8 +7,6 @@ function Header(props) {
     return (
         <header className={classes.Header}>
             <HomePageImage />
-            <h1 className={classes.Content}>Vargyas Kamilla</h1>
-            <h2>Artist</h2>
             <div>
                 <NavLink 
                     to={{ pathname: '/graphite', state: { type: 'graphite' } }} 
