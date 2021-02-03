@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 import { IconButton } from '@material-ui/core';
 import FacebookIcon from '@material-ui/icons/Facebook';
-import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import classes from './Navigation.module.css';
 
@@ -15,28 +14,21 @@ const topnav = (props) => (
         </Link>
         
         <nav>
-            <IconButton 
-                component={Link}
-                className={classes.Social}
-                to="/facebook">
-                    <FacebookIcon 
+            <a href="https://www.facebook.com/profile.php?id=100009775961808">
+                <IconButton
+                    className={classes.Social}>
+                        <FacebookIcon 
                     style={{ color: '#d29f9a' }}
                         fontSize="large"
                         /></IconButton>
-            <IconButton 
-                component={Link}
-                className={classes.Social}
-                to="/twitter">
-                    <TwitterIcon 
-                        style={{ color: '#d29f9a'}}
-                        fontSize="large" /></IconButton>
-            <IconButton 
-                component={Link}
-                to="/instagram"
-                className={classes.Social}>
-                    <InstagramIcon 
-                        style={{ color: '#d29f9a' }}
-                        fontSize="large" /></IconButton>
+            </a>
+            <a href="https://www.instagram.com/vkami4/">
+                <IconButton className={classes.Social}>
+                        <InstagramIcon 
+                            style={{ color: '#d29f9a' }}
+                            fontSize="large" />
+                </IconButton>
+            </a>
             
 
         </nav>

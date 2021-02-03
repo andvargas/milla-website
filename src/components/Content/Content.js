@@ -15,6 +15,7 @@ function Content (props) {
 
             </Switch>
             <Route path="/" exact component={Pictures} />
+            <Route path="/originals" component={Pictures} />
             <Route path="/watercolour" component={Pictures} />
             <Route path="/graphite" component={Pictures} />
             <Route path="/acrylic" component={Pictures} />

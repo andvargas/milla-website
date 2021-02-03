@@ -21,9 +21,9 @@ function sidenav (props) {
                     className={classes.MenuItem}
                     activeStyle={{ color: "#b12382" }} > acrylic</NavLink>
                 <NavLink
-                    to={{ pathname: '/', state: { type: 'original' } }}
+                    to={{ pathname: '/originals'/* , state: { type: 'original' } */ }}
                     className={classes.MenuItem}
-                    activeStyle={{ color: "#b12382" }} > originals</NavLink>
+                    activeStyle={{ color: "#b12382" }} >originals</NavLink>
             </div>
         </nav>
 
