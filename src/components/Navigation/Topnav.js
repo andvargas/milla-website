@@ -14,7 +14,7 @@ const topnav = (props) => (
         </Link>
         
         <nav>
-            <a href="https://www.facebook.com/profile.php?id=100009775961808">
+            <a href="https://www.facebook.com/kamillavargyas">
                 <IconButton
                     className={classes.Social}>
                         <FacebookIcon 

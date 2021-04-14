@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
 
-import Pricelist from '../Pricelist/Pricelist'
 import classes from './Content.module.css';
 import About from '../About/About';
 import Admin from '../Admin/Admin';
@@ -19,8 +18,6 @@ function Content (props) {
             <Route path="/watercolour" component={Pictures} />
             <Route path="/graphite" component={Pictures} />
             <Route path="/acrylic" component={Pictures} />
-                
-            <Route path="/" exact component={Pricelist} />
             
             <Route path="/" component={About} />
         </div>

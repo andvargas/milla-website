@@ -1,11 +1,11 @@
 .ImgCont {
     display: block;
-    width: 11vw;
+    width: 200px;
 }
 
 .Smallimage {
-    width: 10.8vw;
-    height: 10.8vw;
+    width: 180px;
+    height: 180px;
     padding: 16px;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
